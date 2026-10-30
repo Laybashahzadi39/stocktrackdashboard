@@ -17,6 +17,9 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
+app.get('/', (req, res) => {
+    res.send('Stock Ticker Backend is live and running!');
+});
 
 // Socket.io Setup for Realtime Stock Updates
 const server = http.createServer(app);
@@ -59,3 +62,4 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
     console.log(`🚀 Clean MERN Backend Server running on http://localhost:${PORT}`);
 });
+module.exports = app;
